@@ -1,0 +1,20 @@
+"""CodeEval Mersenne Prime Challenge Solution"""
+import sys
+
+with open(sys.argv[1], 'r') as infile:
+    LINES = infile.read().strip().splitlines()
+
+for line in LINES:
+    ceil = int(line)
+    if ceil <= 7:
+        print 3
+    elif ceil <= 31:
+        print '3, 7'
+    elif ceil <= 127:
+        print '3, 7, 31'
+    elif ceil <= 2047:
+        print '3, 7, 31, 127'
+    elif ceil <= 3000:
+      print '3, 7, 31, 127, 2047'
+    else:
+        print 'too high :('

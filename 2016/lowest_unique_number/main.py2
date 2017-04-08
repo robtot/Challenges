@@ -1,0 +1,15 @@
+"""CodeEval Lowest Unique Number Challenge Solution"""
+import sys
+
+with open(sys.argv[1], 'r') as infile:
+    LINES = infile.read().strip().splitlines()
+
+for line in LINES:
+    nums = [int(i[0]) for i in line.split(' ')]
+    winner = 0
+    for i in range(1, len(nums) + 1):
+        matches = [x for x in nums if x == i]
+        if len(matches) == 1:
+            winner = nums.index(i) + 1
+            break
+    print(winner)

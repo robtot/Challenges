@@ -1,0 +1,19 @@
+"""CodeEval Calculate Distance Challenge Solution"""
+import sys
+import math
+
+with open(sys.argv[1], 'r') as infile:
+    LINES = infile.read().strip().splitlines()
+
+for line in LINES:
+    lineSplit = line.split(') (')
+    coordsA = list(lineSplit[0])
+    coordsB = list(lineSplit[1])
+    coordsA.pop(0)
+    coordsB.pop()
+    coordsA = ''.join(coordsA).split(', ')
+    coordsB = ''.join(coordsB).split(', ')
+    xd = int(coordsA[0]) - int(coordsB[0])
+    yd = int(coordsA[1]) - int(coordsB[1])
+    distance = math.sqrt(math.pow(xd, 2) + math.pow(yd, 2))
+    print(int(distance))

@@ -1,0 +1,22 @@
+"""Codeeval Football Challenge"""
+import sys
+import collections
+
+with open(sys.argv[1], 'r') as infile:
+    LINES = infile.read().strip().splitlines()
+
+for line in LINES:
+    countries = line.split('|')
+    countries_total = len(countries)
+    team_rooted_for_locations = collections.defaultdict(list)
+    country_counter = 0
+    while country_counter < countries_total:
+        country = countries[country_counter].strip().split(' ')
+        for rooting in country:
+            team_rooted_for_locations[int(rooting)].append(country_counter + 1)
+        country_counter = country_counter + 1
+
+    output = collections.deque()
+    for team in sorted(team_rooted_for_locations):
+        output.append(str(team) + ':' + ','.join(str(x) for x in team_rooted_for_locations[team]))
+    print('; '.join(output) + ';')

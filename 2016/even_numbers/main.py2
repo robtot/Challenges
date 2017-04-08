@@ -1,0 +1,12 @@
+"""CodeEval Even Numbers Challenge Solution"""
+import sys
+
+with open(sys.argv[1], 'r') as infile:
+    LINES = infile.read().strip().splitlines()
+
+for line in LINES:
+    lineList = list(line)
+    if int(lineList[-1]) % 2 == 0:
+        print(1)
+    else:
+        print(0)

@@ -1,0 +1,8 @@
+"""CodeEval Penultimate Word Challenge Solution"""
+import sys
+
+with open(sys.argv[1], 'r') as infile:
+    LINES = infile.read().strip().splitlines()
+
+for line in LINES:
+    print(line.split(' ')[-2])

@@ -1,0 +1,11 @@
+"""Solution for Simple Sorting Challenge on CodeEval"""
+import sys
+
+with open(sys.argv[1], 'r') as infile:
+    LINES = infile.read().strip().splitlines()
+
+for line in LINES:
+    nums = line.split(' ')
+    nums = [float(num) for num in nums]
+    nums.sort()
+    print ' '.join(format(num, "1.3f") for num in nums)

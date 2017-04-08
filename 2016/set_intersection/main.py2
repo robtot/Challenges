@@ -1,0 +1,13 @@
+"""CodeEval Set Intersection Challenge Solution"""
+import sys
+
+with open(sys.argv[1], 'r') as infile:
+    LINES = infile.read().strip().splitlines()
+
+for line in LINES:
+    sets = line.split(';')
+    set1 = sets[0].split(',')
+    set2 = sets[1].split(',')
+    intersection = sorted(list(set(set1).intersection(set2)))
+    line = ','.join(intersection)
+    print(line)

@@ -1,0 +1,15 @@
+"""CodeEval Swap Case Challenge Solution"""
+import sys
+
+with open(sys.argv[1], 'r') as infile:
+    LINES = infile.read().strip().splitlines()
+
+for line in LINES:
+    chars = list(line)
+    for i, char in enumerate(chars):
+        if char.islower():
+            chars[i] = chars[i].upper()
+        else:
+            chars[i] = chars[i].lower()
+    line = ''.join(chars)
+    print(line)

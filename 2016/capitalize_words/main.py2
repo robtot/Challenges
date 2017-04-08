@@ -1,0 +1,15 @@
+"""CodeEval Capitalize Words Challenge Solution"""
+
+import sys
+
+with open(sys.argv[1], 'r') as infile:
+    LINES = infile.read().strip().splitlines()
+
+for line in LINES:
+    words = line.split(' ')
+    for i, word in enumerate(words):
+        chars = list(word)
+        chars[0] = chars[0].upper()
+        words[i] = ''.join(chars)
+    line = ' '.join(words)
+    print(line)

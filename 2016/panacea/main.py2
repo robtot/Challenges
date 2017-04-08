@@ -1,0 +1,20 @@
+"""CodeEval Panacea Challenge Solution"""
+import sys
+
+with open(sys.argv[1], 'r') as infile:
+    LINES = infile.read().strip().splitlines()
+
+for line in LINES:
+    line = line.split('|')
+    virus_comps = line[0].strip().split(' ')
+    anti_comps = line[1].strip().split(' ')
+    virus_sum = 0
+    anti_sum = 0
+    for virus in virus_comps:
+        virus_sum += int(virus, 16)
+    for anti in anti_comps:
+        anti_sum += int(anti, 2)
+    if anti_sum >= virus_sum:
+        print 'True'
+    else:
+        print 'False'

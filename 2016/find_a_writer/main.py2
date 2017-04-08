@@ -1,0 +1,17 @@
+"""CodeEval Find a Writer Challenge Solution"""
+import sys
+
+with open(sys.argv[1], 'r') as infile:
+    LINES = infile.read().strip().splitlines()
+
+for line in LINES:
+    if line == '':
+        continue
+    line = line.split('|')
+    key = list(line[0])
+    codes = line[1].strip().split(' ')
+    chars = list()
+    for code in codes:
+        chars.append(key[int(code) - 1])
+    line = ''.join(chars)
+    print(line)

@@ -1,0 +1,31 @@
+""" Not So Clever Codeeval Challenge """
+import sys
+
+with open(sys.argv[1], 'r') as infile:
+    LINES = infile.read().strip().splitlines()
+
+def stupid_sort(to_sort, max_iterations):
+    "complete given iterations of stupid sort on list of numbers"
+    #start iterations
+    iteration = 0
+    while iteration < max_iterations:
+        #loop to find next two numbers to switch positions or until end of list
+        iterator = iter(to_sort)
+        step = 1
+        prev_num = next(iterator)
+        while step < len(to_sort):
+            next_num = next(iterator)
+            if prev_num > next_num:
+                to_sort[step] = prev_num
+                to_sort[step - 1] = next_num
+                break
+            prev_num = next_num
+            step = step + 1
+        iteration = iteration + 1
+    return to_sort
+
+for line in LINES:
+    partitioned_line = line.partition('|')
+    to_sort = list(map(int, partitioned_line[0].strip().split(' ')))
+    sorted = map(str, stupid_sort(to_sort, int(partitioned_line[2].strip())))
+    print(' '.join(sorted))
